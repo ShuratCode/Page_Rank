@@ -1,6 +1,5 @@
 import os.path
 from collections import Counter
-from collections import OrderedDict
 from operator import itemgetter
 
 import pandas as pd
@@ -96,8 +95,7 @@ class Graph:
         return self.page_rank[node]
 
     def get_top_nodes(self, n):
-        top_n = Counter(self.page_rank).most_common(n)
-        return top_n
+        return Counter(self.page_rank).most_common(n)
 
     def get_all_PageRank(self):
         sorted_dict = sorted(self.page_rank.items(), key=itemgetter(1), reverse=True)
